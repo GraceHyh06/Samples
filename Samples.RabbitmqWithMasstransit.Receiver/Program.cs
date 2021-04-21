@@ -1,5 +1,4 @@
-﻿using MassTransit;
-using System;
+﻿using Topshelf;
 
 namespace Samples.RabbitmqWithMasstransit.Receiver
 {
@@ -7,21 +6,13 @@ namespace Samples.RabbitmqWithMasstransit.Receiver
     {
         static void Main(string[] args)
         {
-            var bus = Bus.Factory.CreateUsingRabbitMq(sbc => {
-                sbc.Host(new Uri("rabbitmq://localhost"), h => {
-                    h.Username("guest");
-                    h.Password("guest");
-                });
-
-                sbc.ReceiveEndpoint("new_queue", ep => {
-                    ep.Consumer<MessageConsumer>();
+            HostFactory.Run(x => {
+                x.Service<ReceiverService>(sc => {
+                    sc.ConstructUsing(name => new ReceiverService());
+                    sc.WhenStarted(s => s.Start());
+                    sc.WhenStopped(s => s.Stop());
                 });
             });
-
-            bus.Start();
-            Console.WriteLine("Press any key to exist");
-            Console.ReadKey();
-            bus.Stop();
         }
     }
 }

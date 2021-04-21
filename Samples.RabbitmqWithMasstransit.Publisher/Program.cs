@@ -1,7 +1,7 @@
-﻿using MassTransit;
-using Samples.Messages;
+﻿
 using System;
 using System.Threading.Tasks;
+using Topshelf;
 
 namespace Samples.RabbitmqWithMasstransit.Publisher
 {
@@ -9,23 +9,13 @@ namespace Samples.RabbitmqWithMasstransit.Publisher
     {
         static async Task Main(string[] args)
         {
-            var bus = Bus.Factory.CreateUsingRabbitMq(sbc => {
-                sbc.Host(new Uri("rabbitmq://localhost"), h => {
-                    h.Username("guest");
-                    h.Password("guest");
+            HostFactory.Run(x => {
+                x.Service<PublisherService>(sc => {
+                    sc.ConstructUsing(name => new PublisherService());
+                    sc.WhenStarted(s => s.Start());
+                    sc.WhenStopped(s => s.Stop());
                 });
             });
-
-            bus.Start();
-            Console.WriteLine("Input the line to send to RabbitMq:");
-            while (true)
-            {
-                var line =Console.ReadLine();
-                if (line == "exit")
-                    break;
-                await bus.Publish(new SimpleMessage { Greetings = line });
-            }
-            bus.Stop();
         }
     }
 }

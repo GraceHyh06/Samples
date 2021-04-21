@@ -1,5 +1,4 @@
-﻿using System;
-using Topshelf;
+﻿using Topshelf;
 
 namespace Samples.TopshelfService
 {
