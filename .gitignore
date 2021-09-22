@@ -792,3 +792,7 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 
 FodyWeavers.xsd
+/Samples.WpfApp1
+/Samples.WpfApp2
+/WpfApp1
+/WinFormsApp1

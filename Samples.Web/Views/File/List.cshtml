@@ -1,0 +1,24 @@
+﻿@using Samples.Web.Models.File;
+@model IEnumerable<FileItem>;
+@{
+    ViewData["Title"] = "Record List";
+}
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>大小</th>
+            <th>下载</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var el in Model)
+        {
+        <tr>
+            <td>@Html.DisplayFor(m => el.Name)</td>
+            <td>@Html.DisplayFor(m => el.Size)</td>
+            <td><a href="@Url.Action("GetFile","File",new { file = @el.Name })">下载</a></td>
+        </tr>
+        }
+    </tbody>
+</table>
