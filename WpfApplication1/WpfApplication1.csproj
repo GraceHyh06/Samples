@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="EvernoteTagControl.xmal.cs" />
+    <Compile Remove="MainWindow.xaml.cs" />
+    <Compile Remove="ViewModel.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Remove="EvernoteTagControl.xaml" />
+    <Page Remove="MainWindow - Copy.xaml" />
+    <Page Remove="MainWindow.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DotNetProjects.WpfToolkit.Input" Version="6.0.90" />
+  </ItemGroup>
+
+</Project>

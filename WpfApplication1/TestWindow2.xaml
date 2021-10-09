@@ -1,0 +1,22 @@
+﻿<Window x:Class="WpfApplication1.TestWindow2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+        mc:Ignorable="d"
+        Title="TestWindow2" Height="450" Width="800" Background="Black" Loaded="Window_Loaded">
+    <StackPanel>
+        <local:SmartTag Width="180" Height="30" Caption="Test Without Remove" RemoveVisibility="Collapsed"
+                        TagColor="Pink"
+                        TagClicked="SmartTag_TagClicked"
+                        TagRemoveButtonClicked="SmartTag_TagRemoveButtonClicked" TagBorderColor="#FFD61818"/>
+        <local:SmartTag Width="80" Height="30" Caption="Test" 
+                        TagClicked="SmartTag_TagClicked"
+                        TagRemoveButtonClicked="SmartTag_TagRemoveButtonClicked"/>
+        <TextBlock Text="标签"/>
+        <local:SmartTagList x:Name="TagList1" Height="auto" Width="auto" ItemTagClicked="TagList1_ItemTagClicked" ItemTagRemoveButtonClicked="TagList1_ItemTagRemoveButtonClicked"/>
+        <TextBlock Text="点击选择标签" Margin="0, 5, 0, 0"/>
+        <local:SmartTagList x:Name="TagListSource" Height="auto" Width="auto" ItemTagClicked="TagListSource_ItemTagClicked"/>
+    </StackPanel>
+</Window>
