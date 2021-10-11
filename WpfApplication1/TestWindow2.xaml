@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication1"
+        xmlns:smarttag="clr-namespace:SmartTag;assembly=SmartTag"
         mc:Ignorable="d"
         Title="TestWindow2" Height="450" Width="800" Background="Black" Loaded="Window_Loaded">
     <StackPanel>
@@ -18,5 +19,7 @@
         <local:SmartTagList x:Name="TagList1" Height="auto" Width="auto" ItemTagClicked="TagList1_ItemTagClicked" ItemTagRemoveButtonClicked="TagList1_ItemTagRemoveButtonClicked"/>
         <TextBlock Text="点击选择标签" Margin="0, 5, 0, 0"/>
         <local:SmartTagList x:Name="TagListSource" Height="auto" Width="auto" ItemTagClicked="TagListSource_ItemTagClicked"/>
+        <smarttag:SmartTagList x:Name="TagListProcess" Height="30" Width="auto" Background="DarkBlue"/>
+        <smarttag:SmartTag Caption="hello" TagColor="Pink"></smarttag:SmartTag>
     </StackPanel>
 </Window>

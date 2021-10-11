@@ -22,4 +22,8 @@
     <PackageReference Include="DotNetProjects.WpfToolkit.Input" Version="6.0.90" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SmartTag\SmartTag.csproj" />
+  </ItemGroup>
+
 </Project>
